@@ -16,15 +16,15 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
   if (image == NULL) {
     return -1;
   }  
-	CGFloat width = CGImageGetWidth(image);
-	CGFloat height = CGImageGetHeight(image);
+  CGFloat width = CGImageGetWidth(image);
+  CGFloat height = CGImageGetHeight(image);
   NSDictionary *newOpt = [NSDictionary dictionaryWithObjectsAndKeys:(NSString *)[(NSDictionary *)options objectForKey:(NSString *)kQLPreviewPropertyDisplayNameKey], kQLPreviewPropertyDisplayNameKey, [NSNumber numberWithFloat:width], kQLPreviewPropertyWidthKey, [NSNumber numberWithFloat:height], kQLPreviewPropertyHeightKey, nil];
-	CGContextRef ctx = QLPreviewRequestCreateContext(preview, CGSizeMake(width, height), YES, (CFDictionaryRef)newOpt);
+  CGContextRef ctx = QLPreviewRequestCreateContext(preview, CGSizeMake(width, height), YES, (CFDictionaryRef)newOpt);
   CGContextDrawImage(ctx, CGRectMake(0,0,width,height), image);
   QLPreviewRequestFlushContext(preview, ctx);
   CGImageRelease(image);
-	CGContextRelease(ctx);
-	return noErr;
+  CGContextRelease(ctx);
+  return noErr;
 }
 
 void CancelPreviewGeneration(void* thisInterface, QLPreviewRequestRef preview)
