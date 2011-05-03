@@ -1,7 +1,7 @@
 WebP QuickLook Plugin
 =====================
 
-This is an open-source QuickLook plugin to generate thumbnails and previews for WebP images. Requires Mac OS X 10.5 or later (but tested on 10.6).
+This is an open-source QuickLook plugin to generate thumbnails and previews for [WebP images](http://code.google.com/speed/webp/). Requires Mac OS X 10.5 or later (but tested on 10.6).
 
 
 Installation
