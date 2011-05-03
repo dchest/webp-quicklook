@@ -7,7 +7,7 @@ This is an open-source QuickLook plugin to generate thumbnails and previews for 
 Installation
 ------------
 
-Click "Downloads" and download the latest version. Unzip it, and put into `~/Library/QuickLook` (or `/Library/QuickLook`). You may need to reboot to enable it (or open Terminal and run `qlmanage -r`).
+Click "Downloads" and download the latest version. Unzip it, and put `WebP.qlgenerator` into `~/Library/QuickLook` (or `/Library/QuickLook`). You may need to reboot to enable it (or open Terminal and run `qlmanage -r`).
 
 
 Development Notes
