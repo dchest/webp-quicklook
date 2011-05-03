@@ -13,4 +13,4 @@ Click "Downloads" and download the latest version. Unzip it, and put `WebP.qlgen
 Development Notes
 -----------------
 
-The plugin uses the precompiled `libwebp.a` (i386, x86_64, ppc) located in `lib`. I build it manually, and haven't yet created a script to build it from sources; patches welcome.
+The plugin uses the precompiled `libwebp.a` (i386, x86_64, ppc; git rev. d757523) located in `lib`. I build it manually, and haven't yet created a script to build it from sources; patches welcome.
