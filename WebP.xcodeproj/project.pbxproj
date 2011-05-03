@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AE4DF3E136F6C2500079D1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4DF3D136F6C2500079D1E /* Foundation.framework */; };
-		0AE4DF5B136F718C00079D1E /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4DF5A136F718C00079D1E /* libwebp.a */; };
+		0AE4DF5B136F718C00079D1E /* libwebp-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4DF5A136F718C00079D1E /* libwebp-static.a */; };
 		0AE4DF7A136F758200079D1E /* WebPImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AE4DF78136F758200079D1E /* WebPImage.h */; };
 		0AE4DF7B136F758200079D1E /* WebPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4DF79136F758200079D1E /* WebPImage.m */; };
 		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */; };
@@ -26,7 +26,7 @@
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		0AE4DF3D136F6C2500079D1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0AE4DF5A136F718C00079D1E /* libwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebp.a; path = lib/libwebp.a; sourceTree = "<group>"; };
+		0AE4DF5A136F718C00079D1E /* libwebp-static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwebp-static.a"; path = "lib/libwebp-static.a"; sourceTree = "<group>"; };
 		0AE4DF78136F758200079D1E /* WebPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPImage.h; sourceTree = "<group>"; };
 		0AE4DF79136F758200079D1E /* WebPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPImage.m; sourceTree = "<group>"; };
 		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 				F28CFBFD0A3EC0AF000ABFF5 /* ApplicationServices.framework in Frameworks */,
 				F28CFC030A3EC0C6000ABFF5 /* QuickLook.framework in Frameworks */,
 				0AE4DF3E136F6C2500079D1E /* Foundation.framework in Frameworks */,
-				0AE4DF5B136F718C00079D1E /* libwebp.a in Frameworks */,
+				0AE4DF5B136F718C00079D1E /* libwebp-static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +69,7 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				0AE4DF5A136F718C00079D1E /* libwebp.a */,
+				0AE4DF5A136F718C00079D1E /* libwebp-static.a */,
 				F28CFC020A3EC0C6000ABFF5 /* QuickLook.framework */,
 				F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */,
 				C86B05260671AA6E00DD9006 /* CoreServices.framework */,

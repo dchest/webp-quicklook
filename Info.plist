@@ -73,7 +73,7 @@
 				<string>public.image</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>WebP Image</string>
+			<string>WebP image</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.google.webp</string>
 			<key>UTTypeReferenceURL</key>
