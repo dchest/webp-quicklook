@@ -216,6 +216,7 @@
 		2CA3261F0896AD4900168862 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Dmitry Chestnykh";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -229,6 +230,7 @@
 					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = WebP;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Debug;
@@ -236,8 +238,10 @@
 		2CA326200896AD4900168862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Dmitry Chestnykh";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/QuickLook;
@@ -246,6 +250,7 @@
 					"\"$(SRCROOT)/lib\"",
 				);
 				PRODUCT_NAME = WebP;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = qlgenerator;
 			};
 			name = Release;
@@ -260,7 +265,7 @@
 				HEADER_SEARCH_PATHS = ./include;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -273,8 +278,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ./include;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
-				VALID_ARCHS = "i386 ppc ppc7400 ppc970 x86_64";
+				SDKROOT = macosx10.7;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};

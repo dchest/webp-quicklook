@@ -15,7 +15,7 @@
 
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
-  CGImageRef image = GetImageForURL(url);
+  CGImageRef image = CreateImageForURL(url);
   if (image == NULL) {
     return -1;
   }

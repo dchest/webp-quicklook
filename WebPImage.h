@@ -8,4 +8,4 @@
 #import <Foundation/Foundation.h>
 
 
-CGImageRef GetImageForURL(CFURLRef url);
+CGImageRef CreateImageForURL(CFURLRef url);

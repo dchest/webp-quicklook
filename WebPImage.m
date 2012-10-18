@@ -9,26 +9,44 @@
 #import "WebPImage.h"
 #import "webp/decode.h"
 
-CGImageRef GetImageForURL(CFURLRef url)
+CGImageRef CreateImageForURL(CFURLRef url)
 {
-	NSData *fileData = [[NSData alloc] initWithContentsOfURL:(NSURL*)url];
-	int width, height;
-  uint8_t *buf = WebPDecodeRGBA([fileData bytes], [fileData length], &width, &height);
-	if (buf == NULL) {
-		NSLog(@"cannot get WebP image data for %@", url);
-		return NULL;
-	}
-  NSData *imageData = [NSData dataWithBytesNoCopy:buf length:width*height*4];
+    NSData *fileData = [[NSData alloc] initWithContentsOfURL:(NSURL*)url];
+
+     WebPDecoderConfig config;
+    if (!WebPInitDecoderConfig(&config)) {
+         NSLog(@"(WebPInitDecoderConfig) cannot get WebP image data for %@", url);
+        [fileData release];
+        return NULL;
+    }
+
+    if (WebPGetFeatures([fileData bytes], [fileData length], &config.input) != VP8_STATUS_OK) {
+        NSLog(@"(WebPGetFeatures) cannot get WebP image data for %@", url);
+        [fileData release];
+        return NULL;
+    }
+
+    config.output.colorspace = MODE_rgbA; // premultiplied alpha
+
+    if (WebPDecode([fileData bytes], [fileData length], &config) != VP8_STATUS_OK) {
+        NSLog(@"(WebPDecode) cannot get WebP image data for %@", url);
+        [fileData release];
+        return NULL;
+    }
   
-  CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
-  CGContextRef bitmapContext = CGBitmapContextCreate(
-                                                     (void*)[imageData bytes],
-                                                     width,
-                                                     height,
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+    CGContextRef bitmapContext = CGBitmapContextCreate(
+                                                     config.output.u.RGBA.rgba,
+                                                     config.input.width,
+                                                     config.input.height,
                                                      8, // bitsPerComponent
-                                                     4*width, // bytesPerRow
+                                                     4*config.input.width, // bytesPerRow
                                                      colorSpace,
-                                                     kCGImageAlphaNoneSkipLast); //kCGImageAlphaLast is not supported
-  CGColorSpaceRelease(colorSpace);
-  return CGBitmapContextCreateImage(bitmapContext);
+                                                     kCGImageAlphaPremultipliedLast);
+    WebPFreeDecBuffer(&config.output);
+    CGColorSpaceRelease(colorSpace);
+    [fileData release];
+    CGImageRef cgImage = CGBitmapContextCreateImage(bitmapContext);
+    CGContextRelease(bitmapContext);
+    return cgImage;
 }
