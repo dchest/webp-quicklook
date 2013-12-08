@@ -9,7 +9,7 @@ New version supports WebP lossy, lossless, and alpha channels.
 Installation
 ------------
 
-Click "Downloads" and download the latest version. Unzip it, and put `WebP.qlgenerator` into `~/Library/QuickLook` (or `/Library/QuickLook`). You may need to reboot to enable it (or open Terminal and run `qlmanage -r`).
+Click [Releases](https://github.com/dchest/webp-quicklook/releases) and download the latest version. Unzip it, and put `WebP.qlgenerator` into `~/Library/QuickLook` (or `/Library/QuickLook`). You may need to reboot to enable it (or open Terminal and run `qlmanage -r`).
 
 
 Development Notes
