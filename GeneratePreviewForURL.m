@@ -18,12 +18,15 @@ OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview,
   }
   CGFloat width = CGImageGetWidth(image);
   CGFloat height = CGImageGetHeight(image);
-  NSDictionary *newOpt = [NSDictionary dictionaryWithObjectsAndKeys:(NSString *)[(NSDictionary *)options objectForKey:(NSString *)kQLPreviewPropertyDisplayNameKey], kQLPreviewPropertyDisplayNameKey, [NSNumber numberWithFloat:width], kQLPreviewPropertyWidthKey, [NSNumber numberWithFloat:height], kQLPreviewPropertyHeightKey, nil];
-  CGContextRef ctx = QLPreviewRequestCreateContext(preview, CGSizeMake(width, height), YES, (CFDictionaryRef)newOpt);
-  CGContextDrawImage(ctx, CGRectMake(0,0,width,height), image);
-  QLPreviewRequestFlushContext(preview, ctx);
-  CGImageRelease(image);
-  CGContextRelease(ctx);
+
+  @autoreleasepool {
+      NSDictionary *newOpt = [NSDictionary  dictionaryWithObjectsAndKeys:(NSString *)[(NSDictionary *)options objectForKey:(NSString *)kQLPreviewPropertyDisplayNameKey], kQLPreviewPropertyDisplayNameKey, [NSNumber numberWithFloat:width], kQLPreviewPropertyWidthKey, [NSNumber numberWithFloat:height], kQLPreviewPropertyHeightKey, nil];
+      CGContextRef ctx = QLPreviewRequestCreateContext(preview, CGSizeMake(width, height), YES, (CFDictionaryRef)newOpt);
+      CGContextDrawImage(ctx, CGRectMake(0,0,width,height), image);
+      QLPreviewRequestFlushContext(preview, ctx);
+      CGImageRelease(image);
+      CGContextRelease(ctx);
+  }
   return noErr;
 }
 
